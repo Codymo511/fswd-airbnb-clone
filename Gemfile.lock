@@ -100,6 +100,7 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
+    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -140,6 +141,8 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
+    nokogiri (1.13.8-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
@@ -148,6 +151,7 @@ GEM
     parser (3.1.2.1)
       ast (~> 2.4.1)
     pg (1.4.3)
+    pg (1.4.3-x64-mingw-ucrt)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -255,7 +259,10 @@ GEM
     timeout (0.3.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2023.3)
+      tzinfo (>= 1.0.0)
     unicode-display_width (2.2.0)
+    wdm (0.1.1)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -273,6 +280,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+  x64-mingw-ucrt
   x86_64-darwin-20
   x86_64-darwin-21
   x86_64-linux
@@ -299,6 +307,8 @@ DEPENDENCIES
   spring (< 3.0)
   spring-watcher-listen (~> 2.0.1)
   sqlite3 (~> 1.4)
+  tzinfo-data
+  wdm (>= 0.1.0)
   web-console (>= 4.2)
   webpacker (~> 5.0)
   webrick (~> 1.7)

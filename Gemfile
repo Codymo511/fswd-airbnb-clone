@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
-
+gem 'tzinfo-data'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.6.1'
 # Use Puma as the app server
@@ -15,7 +15,7 @@ gem 'webpacker', '~> 5.0'
 # gem 'uglifier', '~> 4.2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+gem 'wdm', '>= 0.1.0'
 # Use jquery as the JavaScript library
 # gem 'jquery-rails', '~> 4.4'
 # Use CoffeeScript for .coffee assets and views
