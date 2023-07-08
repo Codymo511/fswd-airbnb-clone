@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Property from './property';
+import EditProperty from '../edit_property/edit_property';
 
 document.addEventListener('DOMContentLoaded', () => {
   const node = document.getElementById('params');

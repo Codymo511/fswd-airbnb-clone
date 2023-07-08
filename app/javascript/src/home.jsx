@@ -1,3 +1,4 @@
+// home.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
@@ -55,8 +56,9 @@ class Home extends React.Component {
               return (
                 <div key={property.id} className="col-6 col-lg-4 mb-4 property">
                   <a href={`/property/${property.id}`} className="text-body text-decoration-none">
-                    <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${property.image_url})` }} />
+                    <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${property.image})` }} />
                     <p className="text-uppercase mb-0 text-secondary"><small><b>{property.city}</b></small></p>
+                    <p className="text-uppercase mb-0"><small><b>{property.country}</b></small></p>
                     <h6 className="mb-0">{property.title}</h6>
                     <p className="mb-0"><small>${property.price_per_night} USD/night</small></p>
                   </a>
@@ -65,7 +67,7 @@ class Home extends React.Component {
             })}
           </div>
           {loading && <p>loading...</p>}
-          {(loading || next_page === null) ||
+          {(loading || next_page === null) || // The load more div button will be appended if either of them is true otherwise the load more button is not appended.
             <div className="text-center">
               <button
                 className="btn btn-light mb-4"
