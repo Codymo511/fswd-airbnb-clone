@@ -12,7 +12,7 @@ json.booking do
     json.bedrooms @booking.property.bedrooms
     json.beds @booking.property.beds
     json.baths @booking.property.baths
-    json.image url_for(@booking.property.image)
+    json.image url_for(@booking.property.image) if @booking.property.image.attached?
     json.city @booking.property.city
 
     json.user do
