@@ -11,6 +11,6 @@ json.properties do
     json.beds             property.beds
     json.baths            property.baths
     json.price_per_night  property.price_per_night
-    json.image            url_for(property.image)
+    json.image            url_for(property.image) if property.image.attached?
   end
 end

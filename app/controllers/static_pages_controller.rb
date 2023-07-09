@@ -30,9 +30,9 @@ class StaticPagesController < ApplicationController
     @data = { property_id: params[:id] }.to_json
     render 'edit_property'
   end
-  
+
   def reservations
-    @data = { username: params[:username]}.to_json
+    @data = { username: params[:username] }.to_json
     render 'reservations'
   end
 
