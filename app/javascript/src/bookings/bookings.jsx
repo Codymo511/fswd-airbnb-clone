@@ -19,6 +19,7 @@ class Bookings extends React.Component {
     getUserBookings() {
         const username = this.props.data.username;
         console.log(username);
+
         fetch(`/api/users/${username}/bookings`)
         .then(handleErrors)
         .then(data => {

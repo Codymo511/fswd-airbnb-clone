@@ -10,10 +10,10 @@ json.bookings do
       json.id               booking.property.id
       json.city             booking.property.city
       json.title            booking.property.title
-      json.images            url_for(booking.property.images)
+      json.image            url_for(booking.property.image)
       json.price_per_night  booking.property.price_per_night
       
-      # json for the owner of the property
+      
       json.user do
         json.id             booking.property.user.id
         json.username       booking.property.user.username
