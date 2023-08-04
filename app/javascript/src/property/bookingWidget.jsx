@@ -104,7 +104,7 @@ class BookingWidget extends React.Component {
     };
 
     const { price_per_night } = this.props;
-
+    
     let days;
     if (startDate && endDate) {
       days = endDate.diff(startDate, 'days');

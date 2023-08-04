@@ -37,7 +37,7 @@ module Api
         currency: 'usd',
         amount: amount
       })
-
+      
       if @charge.save
         render 'api/charges/create', status: :created
       else

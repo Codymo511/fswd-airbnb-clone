@@ -13,6 +13,7 @@ class SuccessfulBooking extends React.Component {
     subtotal: null,
     total: null,
     loading: true,
+    
   }
 
   componentDidMount() {
@@ -22,7 +23,6 @@ class SuccessfulBooking extends React.Component {
     fetch(`/api/bookings/${booking_id}`)
       .then(handleErrors)
       .then(data => {
-        console.log('data', data)
         let startDate = new Date(data.booking.start_date);
         let endDate = new Date(data.booking.end_date);
         let dateDifference = Math.abs(endDate - startDate)
@@ -43,7 +43,7 @@ class SuccessfulBooking extends React.Component {
   }
 
   render () {
-    const { booking, nights_booked, subtotal, total, loading } = this.state;
+    const { booking, nights_booked, subtotal, total, loading} = this.state;
 
     if (loading) {
       return <p>loading...</p>;

@@ -2,7 +2,8 @@ json.booking do
   json.id @booking.id
   json.start_date @booking.start_date
   json.end_date @booking.end_date
-
+  json.is_paid
+  
   json.property do
     json.id @booking.property.id
     json.title @booking.property.title
@@ -14,7 +15,7 @@ json.booking do
     json.baths @booking.property.baths
     json.image url_for(@booking.property.image) if @booking.property.image.attached?
     json.city @booking.property.city
-
+   
     json.user do
       json.id @booking.property.user.id
       json.username @booking.property.user.username

@@ -8,7 +8,7 @@ class Reservations extends React.Component {
         super(props);
 
         this.state = {
-            userPropertyBookings: {},
+            userPropertyBookings: [],
         }
     }
 
