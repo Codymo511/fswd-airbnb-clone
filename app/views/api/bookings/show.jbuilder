@@ -2,7 +2,7 @@ json.booking do
   json.id @booking.id
   json.start_date @booking.start_date
   json.end_date @booking.end_date
-  json.is_paid
+ 
   
   json.property do
     json.id @booking.property.id
