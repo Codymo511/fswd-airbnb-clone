@@ -5,10 +5,10 @@ module Api
     def create
       token = cookies.signed[:airbnb_session_token]
       session = Session.find_by(token: token)
-      return render json: { error: 'user not logged in' }, status: :unauthorized if !session
+      return render json: { error: 'user not logged in' }, status: :unauthorized unless session
 
       booking = Booking.find_by(id: params[:booking_id])
-      return render json: { error: 'cannot find booking' }, status: :not_found if !booking
+      return render json: { error: 'cannot find booking' }, status: :not_found unless booking
 
       property = booking.property
       days_booked = (booking.end_date - booking.start_date).to_i
@@ -22,22 +22,22 @@ module Api
             unit_amount: (amount * 100.0).to_i, # amount in cents
             product_data: {
               name: "Trip for #{property.title}",
-              description: "Your booking is for #{booking.start_date} to #{booking.end_date}.",
-            },
+              description: "Your booking is for #{booking.start_date} to #{booking.end_date}."
+            }
           },
-          quantity: 1,
+          quantity: 1
         }],
-        mode: "payment",
+        mode: 'payment',
         success_url: "#{ENV['URL']}/bookings/#{booking.id}/success",
-        cancel_url: "#{ENV['URL']}#{params[:cancel_url]}",
+        cancel_url: "#{ENV['URL']}#{params[:cancel_url]}"
       )
 
       @charge = booking.charges.new({
-        checkout_session_id: session.id,
-        currency: 'usd',
-        amount: amount
-      })
-      
+                                      checkout_session_id: session.id,
+                                      currency: 'usd',
+                                      amount: amount
+                                    })
+
       if @charge.save
         render 'api/charges/create', status: :created
       else
@@ -50,6 +50,8 @@ module Api
       endpoint_secret = ENV['STRIPE_MARK_COMPLETE_WEBHOOK_SIGNING_SECRET']
 
       event = nil
+
+      puts "Pre-verify"
 
       # Verify webhook signature and extract the event
       # See https://stripe.com/docs/webhooks/signatures for more information.
@@ -67,20 +69,29 @@ module Api
         return head :bad_request
       end
 
+      puts "Post-verify"
+
+      puts event['type']
+
       # Handle the checkout.session.completed event
       if event['type'] == 'checkout.session.completed'
+        puts "Inside checkout.session.completed"
+
         session = event['data']['object']
+        puts session
 
         # Fulfill the purchase, mark related charge as complete
         charge = Charge.find_by(checkout_session_id: session.id)
-        return head :bad_request if !charge
+        puts "Charge found" if charge
 
-        charge.update({ complete: true })
+        return head :bad_request unless charge
+
+        charge.update!(complete: true)
 
         return head :ok
       end
 
-      return head :bad_request
+      head :bad_request
     end
   end
 end
