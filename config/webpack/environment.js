@@ -28,6 +28,7 @@ environment.plugins.prepend(
   )
 );
 
+
 environment.config.merge(customConfig);
 
 environment.splitChunks()
