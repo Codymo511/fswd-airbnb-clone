@@ -78,10 +78,13 @@ module Api
         puts "Inside checkout.session.completed"
 
         session = event['data']['object']
-        puts session
+        
+        puts "session: #{session}"
+        puts "session.id: #{session.id}"
+        puts "session['id']: #{session['id']}"
 
         # Fulfill the purchase, mark related charge as complete
-        charge = Charge.find_by(checkout_session_id: session.id)
+        charge = Charge.find_by(checkout_session_id: session['id'])
         puts "Charge found" if charge
 
         return head :bad_request unless charge
