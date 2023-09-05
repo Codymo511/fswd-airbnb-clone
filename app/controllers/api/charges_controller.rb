@@ -85,11 +85,12 @@ module Api
 
         # Fulfill the purchase, mark related charge as complete
         charge = Charge.find_by(checkout_session_id: session['id'])
+      
         puts "Charge found" if charge
 
         return head :bad_request unless charge
 
-        charge.update!(complete: true)
+      charge.update!(complete: true)
 
         return head :ok
       end
