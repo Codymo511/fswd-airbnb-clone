@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-require 'rbconfig'
-gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
+
 ruby '3.1.2'
 gem 'tzinfo-data'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
