@@ -15,7 +15,7 @@ gem 'webpacker', '~> 5.0'
 # gem 'uglifier', '~> 4.2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-gem 'wdm', '>= 0.1.0'
+gem 'wdm','>= 0.1.0', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use kaminari for activerecord pagination
 gem 'kaminari'
 # Use jquery as the JavaScript library
@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1' , platforms: [:ruby, :x64_mingw]
+gem 'bcrypt', '~> 3.1'
 # Use Stripe for receiving payments
 gem 'stripe'
 # Use Active Storage variant
