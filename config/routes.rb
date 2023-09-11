@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/:username/reservations'                => 'static_pages#reservations'       # page to see user owned property reservations
   get '/bookings/:id/success'                  => 'static_pages#successful_booking' # page to see the success of the booking the user made
 
+  
   # API routes - BACK END!
   namespace :api do 
     # Users
