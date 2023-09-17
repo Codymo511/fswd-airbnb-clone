@@ -94,6 +94,7 @@ class BookingWidget extends React.Component {
   isDayBlocked = day => this.state.existingBookings.filter(b => day.isBetween(b.start_date, b.end_date, null, '[)')).length > 0
 
   render () {
+    console.log(`${process.env.STRIPE_PUBLISHABLE_KEY}`)
     const { authenticated, startDate, endDate, focusedInput } = this.state;
     if (!authenticated) {
       return (
