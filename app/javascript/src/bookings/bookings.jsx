@@ -40,7 +40,7 @@ class Bookings extends React.Component {
         }))
         .then(handleErrors)
         .then(response => {
-            const stripe = Stripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
+            const stripe = Stripe(`${pk_test_51NDAKVARKXEUORNgupBnb4jib75FaEHNVi6lvovOOa11bH3VCH7x9y7zzIoFJG6EsYSiAx2VMxctWMroMM9W9RlL00tW6TBX9a}`);
             stripe.redirectToCheckout({
                 sessionId: response.charge.checkout_session_id,
             }).then(result => {
