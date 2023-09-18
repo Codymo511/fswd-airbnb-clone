@@ -12,7 +12,7 @@ class Booking < ApplicationRecord
   before_validation :check_availability
 
   def is_paid?
-    self.charges.pluck(:complete).include?(true)
+    self.charges.pluck(:complete)(true)
   end
 
   private
